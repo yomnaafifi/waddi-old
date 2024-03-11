@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'admin.apps.AdminConfig',
+    # 'admin.apps.AdminConfig',
     'customer.apps.CustomerConfig',
     'driver.apps.DriverConfig',
     'payment.apps.PaymentConfig',
@@ -89,7 +89,7 @@ DATABASES = {
         'NAME': 'waddi',
         'USER': 'waddi',
         'PASSWORD': 'password',
-        'HOST': '127.0.0.1',  # or the IP address of your Docker container
+        'HOST': 'localhost',  # or the IP address of your Docker container
         'PORT': '5432',
     }
 }
