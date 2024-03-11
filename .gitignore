@@ -103,6 +103,7 @@ celerybeat-schedule.*
 .venv
 env/
 venv/
+waddi-venv/
 ENV/
 env.bak/
 venv.bak/
