@@ -8,7 +8,7 @@ class Truck(models.Model):
     model = models.CharField(max_length=255)
     license = models.CharField(max_length=255)
     registration_number = models.CharField(max_length=255)
-    driver = models.OneToOneField(Driver, on_delete = models.SET_NULL)
+    driver = models.OneToOneField(Driver, on_delete = models.CASCADE)
 
 
     def __str__(self):
