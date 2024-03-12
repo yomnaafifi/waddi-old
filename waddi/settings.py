@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'admin.apps.AdminConfig',
+    'admin_user.apps.Admin_userConfig',
     'customer.apps.CustomerConfig',
     'driver.apps.DriverConfig',
     'payment.apps.PaymentConfig',
@@ -85,8 +85,12 @@ WSGI_APPLICATION = 'waddi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'waddi',
+        'USER': 'waddi',
+        'PASSWORD': 'password',
+        'PORT': '5432',
+
     }
 }
 

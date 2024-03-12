@@ -1,6 +1,5 @@
 from django.db import models
-from ..driver import Driver
-
+from driver.models import Driver
 
 # Create your models here.
 class Truck(models.Model):
@@ -9,7 +8,7 @@ class Truck(models.Model):
     model = models.CharField(max_length=255)
     license = models.CharField(max_length=255)
     registration_number = models.CharField(max_length=255)
-    driver = models.OneToOneField(Driver, on_delete=models.CASCADE, related_name='truck')
+    driver = models.OneToOneField(Driver, on_delete = models.SET_NULL)
 
 
     def __str__(self):
