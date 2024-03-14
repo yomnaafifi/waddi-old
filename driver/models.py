@@ -3,7 +3,8 @@ from customer.models import Customer
 from admin_user.models import Admin
 # Create your models here.
 class Driver(models.Model):
-    name = models.CharField(max_length=255)
+    firstname = models.CharField(max_length=255)
+    lastname = models.CharField(max_length=255)
     image = models.CharField(max_length=255, null=True, blank=True)
     license = models.CharField(max_length=255)
     email = models.EmailField(unique=True)

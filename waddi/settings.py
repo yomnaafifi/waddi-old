@@ -38,12 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'admin_user.apps.Admin_userConfig',
-    'customer.apps.CustomerConfig',
-    'driver.apps.DriverConfig',
-    'payment.apps.PaymentConfig',
-    'shipment.apps.ShipmentConfig',
-    'truck.apps.TruckConfig',
+    'admin_user',
+    'customer',
+    'driver',
+    'payment',
+    'shipment',
+    'truck',
 
     
 
