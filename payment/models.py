@@ -4,12 +4,28 @@ from customer.models import Customer
 
 
 # Create your models here.
-class Payment(models.Model):
+class Transactions(models.Model):
     id = models.AutoField(primary_key=True)
     type = models.CharField(max_length=255)
     date = models.DateField()
+    value = models.DecimalField(max_digits=10, decimal_places = 2)
     driver = models.OneToOneField(Driver, models.CASCADE)
     customer = models.OneToOneField(Customer, on_delete = models.CASCADE)
+    class Meta:
+        db_table = 'transactions'
 
-    def __str__(self):
-        return f"{self.type} - {self.date}"
+
+class Card(models.Model):
+    cardholder_name = models.CharField(max_length=100)
+    #customer = models.ForeignKey(Customer, on_delete=models.CASCADE, null =False)
+    card_number = models.CharField(max_length=16)  
+    expiration_date = models.DateField()
+    cvv_code = models.CharField(max_length=4)  
+    billing_address = models.CharField(max_length=255)
+    card_type = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
+    default_card = models.BooleanField()
+
+    class Meta:
+        db_table = 'card'
+        
