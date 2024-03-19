@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'payment',
     'shipment',
     'truck',
+    'rest_framework',
 
     
 
