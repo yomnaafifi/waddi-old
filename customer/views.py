@@ -8,5 +8,5 @@ from customer.serilaizer import CustomerSerializer
 def show_customer(request, pk, format=None):
     if request.method == 'GET':
         customer_data = Customer.objects.get(pk=pk)
-        serializer = CustomerSerializer(customer_data, many=True)
+        serializer = CustomerSerializer(customer_data)
         return Response(serializer.data)
