@@ -7,7 +7,7 @@ class DriverSerilaizer(serializers.ModelSerializer):
         fields = ['firstname', 'lastname', 'email', 'birthday', 'phone_number', 'image', 'email']
 
 
-class DriverSerilaizer(serializers.ModelSerializer):
+class TasksSerilaizer(serializers.ModelSerializer):
     class Meta:
         model = Tasks
         fields = ['__all__']

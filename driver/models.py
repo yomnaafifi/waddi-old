@@ -1,5 +1,5 @@
 from django.db import models
-from customer.models import Customer #, Address
+from customer.models import Customer ,Address
 from admin_user.models import Admin
 # Create your models here.
 class Driver(models.Model):
@@ -8,7 +8,7 @@ class Driver(models.Model):
     image = models.CharField(max_length=255, null=True, blank=True)
     license = models.CharField(max_length=255, null=False)
     email = models.EmailField(unique=True, null=False)
-    phone_number = models.CharField(max_length=15, null=False)
+    phone_number = models.CharField(max_length=50, null=False)
     customer = models.ManyToManyField(Customer)
     admin = models.ForeignKey(Admin, on_delete = models.CASCADE, null=False)
     
@@ -17,10 +17,15 @@ class Driver(models.Model):
     def __str__(self):
         return self.name
 
-class Tasks(models.Model):
-    pickup_from = models.CharField(max_length= 100, null=False)
-    delivery_to = models.CharField(max_length= 100, null=False)
+class Tasks(Address):
     destination = models.CharField(max_length= 100, null=False)
-
+    states =[
+        
+    ] 
+    state = models.CharField(max_length = 50, choices= states, default = 'state')
     class Meta: 
         db_table ='tasks'
+
+
+class Trips(Address): #how to link it with orders
+    pass
