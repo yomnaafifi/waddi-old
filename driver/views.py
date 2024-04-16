@@ -34,6 +34,5 @@ def TasksView (request): #this is supposed to be done with websocket
         return Response(serializer.data)
 
 
- #how do i get the specific tasks for each driver
         
 
