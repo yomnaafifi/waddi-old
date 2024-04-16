@@ -7,8 +7,8 @@ from customer.models import Customer
 class Transactions(models.Model):
     id = models.AutoField(primary_key=True)
     type = models.CharField(max_length=255)
-    date = models.DateField()
-    value = models.DecimalField(max_digits=10, decimal_places = 2)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    amount = models.DecimalField(max_digits=10, decimal_places = 2)
     driver = models.OneToOneField(Driver, models.CASCADE)
     customer = models.OneToOneField(Customer, on_delete = models.CASCADE)
     class Meta:

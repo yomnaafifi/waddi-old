@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('customer/', include('customer.urls')),
     path('driver/', include('driver.urls')),
+    path('payment/', include('payment.urls')),
 ]
