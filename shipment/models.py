@@ -1,5 +1,7 @@
 from django.db import models
-from customer.models import Customer, Address
+from customer.models import Customer
+from utils.models import Address
+
 
 # Create your models here.
 class Orders(Address):

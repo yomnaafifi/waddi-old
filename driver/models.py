@@ -1,5 +1,6 @@
 from django.db import models
-from customer.models import Customer ,Address
+from customer.models import Customer 
+from utils.models import Address
 from admin_user.models import Admin
 # Create your models here.
 class Driver(models.Model):
