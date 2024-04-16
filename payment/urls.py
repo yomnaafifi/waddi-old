@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path('<int:pk>/', views.saved_cards.as_view()),
+    path('withdrawals/<int:pk>/', views.withdrawal_history.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
