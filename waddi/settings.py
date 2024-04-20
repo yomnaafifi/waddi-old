@@ -27,7 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,10 +48,21 @@ INSTALLED_APPS = [
     'shipment',
     'truck',
     'rest_framework',
+    'drf_spectacular',
 
     
 
 ]
+
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Waddi API',
+    'DESCRIPTION': 'Waddi apis',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
