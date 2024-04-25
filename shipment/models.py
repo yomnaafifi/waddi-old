@@ -23,13 +23,19 @@ class Orders(Address):
     type = models.CharField(max_length=200, choices = types, null=False)
     weight = models.DecimalField(max_digits=10, decimal_places=2, null=False)  
     pickup_time = models.DateTimeField(null=False )
+    delivery_time = models.DateTimeField(null=False )
     pricing = models.BigIntegerField(null=False)
     packing = models.BooleanField()
     labor = models.BooleanField()
     states = {
-        
+        ('pending', 'Pending'),
+        ('out for delivery', 'Out for delivery'),
+        ('delivered', 'Delivered'),
+
     }
     order_state = models.CharField(max_length=200, choices = states, null=False)
+    pickup_address = models.ForeignKey(Address,  on_delete=models.CASCADE)
+    dropoff_address = models.ForeignKey(Address, on_delete=models.CASCADE)
 
 
     class Meta:

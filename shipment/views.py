@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework import generics
+from shipment.models import Orders
+from shipment.serializer import ShipmentHistorySerializer
 
-# Create your views here.
+
+class ShipmentHistoryView (generics.ListAPIView):
+    queryset = Orders.objects.filter(status = 'Delivered') #its supposed to get all delivered shipments of this user
+    serializer_class = ShipmentHistorySerializer
