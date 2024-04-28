@@ -2,17 +2,14 @@ from django.db import models
 from customer.models import Customer 
 from utils.models import Address
 from admin_user.models import Admin
-# Create your models here.
+
+from auth.models import CustomUser
 class Driver(models.Model):
-    firstname = models.CharField(max_length=255, null=False)
-    lastname = models.CharField(max_length=255,default='lastname', null=False)
-    image = models.CharField(max_length=255, null=True, blank=True)
+    driver = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
     license = models.CharField(max_length=255, null=False)
-    email = models.EmailField(unique=True, null=False)
-    phone_number = models.CharField(max_length=50, null=False)
     customer = models.ManyToManyField(Customer, null=True)
     admin = models.ForeignKey(Admin, on_delete = models.CASCADE, null=False)
-    online = models.BooleanField(default=False)
+    is_online = models.BooleanField(default=False)
 
 
     def __str__(self):
