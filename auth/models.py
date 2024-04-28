@@ -14,6 +14,8 @@ class CustomUser(AbstractBaseUser):
 
     is_customer = models.BooleanField(default=False)
     is_driver = models.BooleanField(default=False)
+    is_admin = models.BooleanField(default=False)
+    
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ['first_name', 'last_name', 'birthdate', 'phone_no']
