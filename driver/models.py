@@ -8,7 +8,7 @@ class Driver(models.Model):
     driver = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
     license = models.CharField(max_length=255, null=False)
     customer = models.ManyToManyField(Customer, null=True)
-    admin = models.ForeignKey(Admin, on_delete = models.CASCADE, null=False)
+    #admin = models.ForeignKey(Admin, on_delete = models.CASCADE, null=False)
     is_online = models.BooleanField(default=False)
 
 

@@ -1,14 +1,14 @@
-from rest_framework import status
+from rest_framework import status, generics
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from customer.models import Customer
-from customer.serilaizer import CustomerSerializer
+from customer.serilaizer import CustomerSerializer 
 from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiExample
 from drf_spectacular.types import OpenApiTypes
 
 @api_view(['GET', 'PATCH'])
 @extend_schema(
-    responses=CustomerSerializer
+    responses= CustomerSerializer
 )
 def CustomerDetailsView(request, pk):
     try: 

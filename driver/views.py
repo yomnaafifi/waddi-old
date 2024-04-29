@@ -6,6 +6,12 @@ from driver.serializer import DriverSerilaizer, TasksSerilaizer
 from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiExample
 from drf_spectacular.types import OpenApiTypes
 
+
+
+
+
+
+
 @api_view(['GET', 'PATCH'])
 @extend_schema(
     responses=DriverSerilaizer

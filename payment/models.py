@@ -15,15 +15,15 @@ class Transactions(models.Model):
 
 
 class Card(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, primary_key=True)
     cardholder_name = models.CharField(max_length=200)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, null =False)
     card_number = models.CharField(max_length=50)  
     expiration_date = models.DateField()
     cvv_code = models.CharField(max_length=50)  
     billing_address = models.CharField(max_length=255)
     card_type = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
-    default_card = models.BooleanField()
+    is_default = models.BooleanField()
 
     class Meta:
         db_table = 'card'
