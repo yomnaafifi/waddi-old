@@ -9,8 +9,8 @@ from auth.models import CustomUser
 
 class Customer(Address):
     #address = models.
-    customer = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
-    #admin = models.ForeignKey(Admin, on_delete = models.CASCADE, null=False)
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
+    ##admin = models.ForeignKey(Admin, on_delete = models.CASCADE, null=False)
     payment_methods = models.Choices(
         (1, 'Cash on Delivery'),
         (2, 'Mobile Banking'),
