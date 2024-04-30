@@ -2,12 +2,8 @@ from django.db import models
 from customer.models import Customer
 from utils.models import Address
 
-
-# Create your models here.
-class Orders(Address):
-    location = models.CharField(max_length=255, null=False)
-    destination = models.CharField(max_length=255, null=False)
-    customer = models.OneToOneField(Customer, on_delete = models.CASCADE, null=False)
+class Orders(models.Model):
+    customer = models.ForeignKey(Customer, on_delete = models.CASCADE)
     order_notes = models.TextField(blank=True, null=True)
     date_created = models.DateTimeField(auto_now_add = True, null=False)
     types = {
@@ -22,11 +18,11 @@ class Orders(Address):
     }
     type = models.CharField(max_length=200, choices = types, null=False)
     weight = models.DecimalField(max_digits=10, decimal_places=2, null=False)  
-    pickup_time = models.DateTimeField(null=False )
-    delivery_time = models.DateTimeField(null=False )
+    pickup_date = models.DateTimeField(null=False )
+    delivery_date = models.DateTimeField(null=False )
     pricing = models.BigIntegerField(null=False)
-    packing = models.BooleanField()
-    labor = models.BooleanField()
+    need_packing = models.BooleanField()
+    need_labor = models.BooleanField()
     states = {
         ('pending', 'Pending'),
         ('out for delivery', 'Out for delivery'),
@@ -35,8 +31,10 @@ class Orders(Address):
     }
     order_state = models.CharField(max_length=200, choices = states, null=False)
     pickup_address = models.ForeignKey(Address,  on_delete=models.CASCADE)
-    dropoff_address = models.ForeignKey(Address, on_delete=models.CASCADE)
+    delivery_address = models.ForeignKey(Address, on_delete=models.CASCADE)
 
-
+    @property
+    def destination(self):
+        pass #should calculate the destination
     class Meta:
         db_table = 'orders'

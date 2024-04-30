@@ -4,5 +4,8 @@ from shipment.serializer import ShipmentHistorySerializer
 
 
 class ShipmentHistoryView (generics.ListAPIView):
-    queryset = Orders.objects.filter(status = 'Delivered') #its supposed to get all delivered shipments of this user
     serializer_class = ShipmentHistorySerializer
+
+    def get(self, request, pk):
+        queryset = Orders.objects.filter(status = 'Delivered', customer_id = pk)
+        return queryset

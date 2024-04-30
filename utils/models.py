@@ -1,6 +1,6 @@
 from django.db import models
 
-class Address(models.Model):
+class Address(models.Model): 
     street_address = models.CharField(max_length=255, default = 'street')
     city = models.CharField(max_length=200, default = 'city')
     state_province = models.CharField(max_length=200, default = 'state')
@@ -8,4 +8,4 @@ class Address(models.Model):
     country = models.CharField(max_length=200, default = 'country')
 
     class Meta:
-         abstract = True
+         db_table = 'address' 

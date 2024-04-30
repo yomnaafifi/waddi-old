@@ -1,6 +1,5 @@
 from django.db import models
 from customer.models import Customer 
-from utils.models import Address
 from admin_user.models import Admin
 # Create your models here.
 class Driver(models.Model):
@@ -18,7 +17,7 @@ class Driver(models.Model):
     def __str__(self):
         return self.name
 
-class Tasks(Address):
+class Tasks(models.Model):
     destination = models.CharField(max_length= 100, null=False)
     states =[
         
@@ -28,5 +27,5 @@ class Tasks(Address):
         db_table ='tasks'
 
 
-class Trips(Address): #how to link it with orders
+class Trips(models.Model): #how to link it with orders
     pass
