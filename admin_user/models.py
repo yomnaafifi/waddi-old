@@ -1,13 +1,11 @@
 from django.db import models
+from auth.models import CustomUser
 
 
 
 # Create your models here.
 class Admin(models.Model):
-    name = models.CharField(max_length=255)
-    email = models.EmailField(unique=True)
-    phone = models.CharField(max_length=50)
-    password = models.CharField(max_length=255)
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
 
 
     def __str__(self):
